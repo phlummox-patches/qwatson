@@ -15,6 +15,8 @@ import os.path as osp
 import shutil
 import json
 
+from warnings import warn
+
 # ---- Third parties imports
 
 import click
@@ -395,7 +397,7 @@ class QWatson(QWidget, QWatsonImportMixin, QWatsonProjectMixin,
                 self.comment_manager.setText(frame.message)
                 self.comment_manager.blockSignals(False)
             except IndexError:
-                print("IndexError: list index out of range")
+                warn("IndexError: list index out of range: %s. Probably means this code needs to be fixed" % index)
 
     # ---- Bottom Toolbar
 
