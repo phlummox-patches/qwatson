@@ -126,7 +126,7 @@ class StopWatchWidget(ColoredFrame):
             icons.get_iconsize(self.__iconsize)
             ).height()
         fix_width = fix_height * size_ratio
-        self.elap_timer.setFixedSize(fix_width, fix_height)
+        self.elap_timer.setFixedSize( int(fix_width), int(fix_height))
 
         return self.elap_timer
 
@@ -139,7 +139,8 @@ class StopWatchWidget(ColoredFrame):
         self.buttons['start'].setEnabled(False)
         self.buttons['stop'].setEnabled(True)
         self.buttons['cancel'].setEnabled(True)
-        self.elap_timer.start(self.startFrom().timestamp)
+        start_timestamp = self.startFrom().timestamp()
+        self.elap_timer.start(start_timestamp)
 
     def stop(self):
         """
@@ -217,7 +218,9 @@ class ElapsedTimeLCDNumber(QLCDNumber):
 
     def update_elapsed_time(self):
         """Update elapsed time in the widget."""
-        self._elapsed_time = time.time() - self._start_time
+        timenow = time.time()
+        timediff = timenow - self._start_time
+        self._elapsed_time = timediff
         self.display(
             time.strftime("%H:%M:%S", time.gmtime(self._elapsed_time)))
 

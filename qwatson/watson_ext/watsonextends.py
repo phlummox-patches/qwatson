@@ -50,9 +50,9 @@ class Frame(namedtuple('Frame', HEADERS)):
         )
 
     def dump(self):
-        start = self.start.to('utc').timestamp
-        stop = self.stop.to('utc').timestamp
-        updated_at = self.updated_at.timestamp
+        start = self.start.to('utc').timestamp()
+        stop = self.stop.to('utc').timestamp()
+        updated_at = self.updated_at.timestamp()
 
         return (start, stop, self.project, self.id, self.tags, updated_at,
                 self.message)
