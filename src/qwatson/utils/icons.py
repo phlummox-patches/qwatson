@@ -17,9 +17,8 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QStyle
 import qtawesome as qta
 
-from qwatson import __rootdir__
+from importlib_resources import files
 
-DIRNAME = os.path.join(__rootdir__, 'ressources', 'icons_png')
 APP_ICONS = {
     'master': 'qwatson',
     'process_start': 'process_start',
@@ -58,10 +57,11 @@ def get_icon(name):
         args, kwargs = FA_ICONS[name]
         return qta.icon(*args, **kwargs)
     elif name in APP_ICONS:
-        return QIcon(os.path.join(DIRNAME, APP_ICONS[name]))
+        icon_path = files('qwatson.ressources.icons_png').joinpath(APP_ICONS[name])
+        return QIcon( str(icon_path) )
     else:
-        return QIcon()
-
+        #return QIcon()
+        raise "ack! no icon"
 
 def get_iconsize(size):
     return QSize(*ICON_SIZES[size])

@@ -39,7 +39,7 @@ if __name__ == '__main__':
     classifiers     =[
         "Development Status :: 3 - Alpha",
     ],
-    #include_package_data=True,
+    include_package_data=True,
     entry_points={
           'console_scripts': [
                 # thin wrapper around bbquiz.main
