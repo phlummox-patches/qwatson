@@ -551,10 +551,22 @@ class QWatson(QWidget, QWatsonImportMixin, QWatsonProjectMixin,
             print("QWatson is closed.\n")
 
 
-if __name__ == '__main__':
+def main():
     app = QApplication(sys.argv)
     watson_gui = QWatson()
     watson_gui.show()
     watson_gui.setFixedSize(watson_gui.size())
     print("QWatson is running...")
-    sys.exit(app.exec_())
+    res = app.exec_()
+    sys.exit(res)
+
+MAIN='__main__'
+#MAIN=None
+
+
+if __name__ == MAIN:
+    main()
+
+
+
+
