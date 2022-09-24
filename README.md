@@ -23,8 +23,15 @@ https://tailordev.fr/blog/2017/06/07/le-lab-5-crick-a-backend-for-watson-time-tr
 **Windows**<br>
 An installer and a binary for the Windows platform are available for download [here](https://github.com/jnsebgosselin/qwatson/releases/latest) or you can run it directly from source by cloning the repository and installing the required [dependencies](./requirements.txt).
 
-**MacOSX and Linux**<br>
-Unfortunately, QWatson is not being tested and no binary is available for the MacOSX and Linux platforms. However, it should be possible to run QWatson on those platforms directly from the source code, provided that the required [dependencies](./requirements.txt) are installed correctly.
+**MacOSX and Linux**
+
+```
+$ python3 -m pip install https://github.com/phlummox-patches/qwatson/archive/refs/heads/master.zip
+```
+
+Or, using `git` to fetch a full copy of the repository:
+
+- `git clone` this repository, `cd` in, and run `pip install .`.
 
 **Important:**<br>
 In order to support the addition of log messages/comments to the activity frames, QWatson is distributed with an extended version of Watson (see Pull Request [#1](https://github.com/jnsebgosselin/qwatson/pull/1) and [#59](https://github.com/jnsebgosselin/qwatson/pull/59)). This means that until this feature is officially supported in Watson, frames edited with QWatson won't be readable nor editable with the Watson CLI (see [Issue #37](https://github.com/jnsebgosselin/qwatson/issues/37)).
